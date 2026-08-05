@@ -21,14 +21,39 @@
 <body>
 <main>
   <div class="content">
-  <h1>Desserts</h1>
- <ul class="product-list">
-  </ul>
-</div>
+    <h1>Desserts</h1>
+    <ul class="product-list"></ul>
+  </div>
   <section class="order_cart">
-    <h2>Your Cart (<span class="quantity_all">0</span>)</h2>
-    <img src="./assets/images/illustration-empty-cart.svg">
-    <p>Your added items will appear here</p>
+    <h2>Your Cart (<span id="quantity_all">0</span>)</h2>
+    <div id="noItemBasket"><img src="./assets/images/illustration-empty-cart.svg">
+    <p>Your added items will appear here</p></div>
+    <div class="basket"><!---
+    <div class="item">
+      <div class="order_left">
+        <span class="name_item">Waffle with Berries</span>
+        <div class="bottom_item">
+          <span class="quantity">2</span>
+          <span class="price_for_one">5.50</span>
+          <span class="price_for_all">11.00</span>
+        </div>
+      </div>
+      <button type="button" class="erase_item">
+        <img src="/assets/images/icon-remove-item.svg" alt="remove-item">
+      </button>
+      <hr>
+    </div>
+    ---></div>
+
+<div id="confirmOrder" class="hidden">
+    <div class="total_price">
+      <span>Order Total</span>
+      <span class="final_price">46.50</span>
+    </div>
+    <div class="carbon_neutral"><img src="/assets/images/icon-carbon-neutral.svg" alt="icon-carbon-neutral">
+      <span>This is a <b>carbon-neutral</b> delivery</span>
+    </div>
+    <button type="button" class="confirm_order">Confirm Order</button> </div>  
   </section>
 </main>
   <footer class="attribution">

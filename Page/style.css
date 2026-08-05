@@ -2,6 +2,10 @@
     font-family: 'Red Hat Text', sans-serif;
     padding: 0;
     margin: 0;
+    color: hsl(14, 65%, 9%);
+}
+*::after,*::before,*{
+    box-sizing: border-box;
 }
 body{
     background: hsl(20, 50%, 98%);
@@ -20,14 +24,14 @@ main{
 
 h1,h2,h3{
     display: block;
-    font-weight: 700;
+    font-weight: 600;
     padding: 0 0 30px 0;
 }
 h3{
     display: flex;
     justify-self: flex-start;
     padding: 5px 0;
-    
+    font-size: 16px;
 }
 h2{
     color:hsl(14, 86%, 42%);
@@ -37,7 +41,12 @@ h2{
         padding: 5%;
     }
 }
+#quantity_all{
+    color:hsl(14, 86%, 42%);
+
+}
 h1{
+    font-weight: 700;
     @media (max-width: 375px){
         font-size: 40px;
     }
@@ -78,17 +87,17 @@ ul,li{
     justify-content: center;
     margin-top:-10%;
     margin-bottom: 5%;
-    border-width:1px;
-    width:70%;
-    height:fit-content;
-    padding: 4% 1%;
+    border:1px solid hsl(14, 65%, 9%);
+    width: 65%;
+    min-height:50px;
+    padding: 10px;
     border-radius: 25px;
     background: #ffffff;
     font-size: 16px;
     font-weight: 500;
     @media (max-width: 375px){
-    width:90%;
-    padding: 6% 2%;
+        width:90%;
+        padding: 6% 2%;
     }
 }
 .add_to_cart{
@@ -96,8 +105,8 @@ ul,li{
     width:15%;
     height:15%;
     @media (max-width: 375px){
-    width:13%;
-    height:13%;
+        width:13%;
+        height:13%;
     }
 }
 .img_item{
@@ -111,14 +120,31 @@ ul,li{
         object-position: center;
     }
 }
+.increment,.decrement{
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 100%;
+    background: #00000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.quantity_for_one{
+    color:white;
+    font-size: 18px;
+}
+
 .type{
     font-size: 13px;
     font-weight: 100;
 }
-.price::before{
+.price::before,.price_for_one::before,.price_for_all::before,.final_price::before{
     content: "$";
 }
-.price{
+.price,.quantity{
     color: hsl(14, 86%, 42%);
     font-weight: 600;
 }
@@ -144,15 +170,110 @@ ul,li{
 .order_cart img{
     display: block;
     margin: 0 auto;
-
+}
+.hidden{
+    display: none;
 }
 /*___________selected_________*/
-.add_item:active{
-    border-color: hsla(0, 0%, 100%, 0);
+.add_item_active{
+    border:1px solid hsl(14, 86%, 42%);
     background: hsl(14, 86%, 42%);
+    justify-content: space-between;
+    color:#fff;
 }
 .img_item_active{
-    display:none;
-    border: 1px solid hsl(14, 86%, 42%);
+    outline: 2px solid hsl(14, 86%, 42%);
+    outline-offset: -2px;
+}
+.item{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    @media (max-width: 375px) {
+        grid-template-columns: 95% 5%;
+        margin: 0 20px;
     }
-/*___________mobile_________*/
+}
+.order_left{
+grid-column: 1;
+}
+.bottom_item{
+    margin: 10px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    width: 65%;
+}
+
+.name_item{
+    font-weight: 600;
+    font-size: 15px;
+}
+hr{
+    margin: 20px 0;
+    grid-column: span 2;
+    border-style:none;
+    border-top: 1px solid hsl(13, 31%, 94%);
+}
+
+.quantity::after{
+    content: "x";
+}
+.price_for_one{
+    font-weight: 100;
+    color: hsl(12, 20%, 44%);
+}
+.price_for_one::before{
+    content: "@ $";
+}
+.price_for_all{
+    font-weight: 600;
+    color: hsl(12, 20%, 44%);
+}
+.erase_item{
+    width: fit-content;
+    border-radius: 100%;
+    padding: 3px;
+    border: 1px solid hsl(14, 25%, 72%);
+    background: #00000000;
+    place-self: center end;
+}
+.total_price{
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-end;
+    @media (max-width: 375px) {
+        margin: 0 20px;
+    }
+}
+.final_price{
+    font-size: 24px;
+    font-weight: 700;
+}
+.carbon_neutral{
+    display: flex;
+    background: hsl(20, 50%, 98%);
+    margin: 20px 0;
+    padding: 15px 0;
+    justify-content: center;
+    border-radius: 6px;
+    @media (max-width: 375px) {
+        margin: 20px;
+    }
+}
+.carbon_neutral img{
+    margin: 0 5px;
+}
+.confirm_order{
+    border: none;
+    background: hsl(14, 86%, 42%);
+    color: #fff;
+    width:100%;
+    height:fit-content;
+    padding: 4% 1%;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 25px;
+    font-size: 20px;
+    @media (max-width: 375px) {
+        width:90%;
+    }
+}
